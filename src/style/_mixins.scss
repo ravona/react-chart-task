@@ -1,0 +1,46 @@
+@mixin woodBlock {
+  $button-color-border: rgba(0, 0, 0, 0.7);
+  $button-color-shadow: rgba(0, 0, 0, 0.5);
+
+  display: block;
+  padding: 20px;
+  position: relative;
+  transform: perspective(1000px) rotate(-15deg) skew(10deg) translate(0, 0);
+  box-shadow: -20px 20px 10px $button-color-shadow;
+  transition: all 0.5s ease-in-out;
+  margin-bottom: 4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  &::before {
+    display: block;
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    left: -20px;
+    top: 10px;
+    background: $button-color-border;
+    transform: rotate(0deg) skewY(-45deg);
+  }
+
+  &::after {
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: -20px;
+    left: -10px;
+    height: 20px;
+    width: 100%;
+    transform: rotate(0deg) skewX(-45deg);
+    background: $button-color-border;
+    transform: rotate(45deg) scewY(-45deg);
+  }
+
+  &:hover {
+    background: darken(white, 10%);
+    transform: perspective(1000px) rotate(-10deg) skew(15deg)
+      translate(20px, -20px);
+    box-shadow: -50px 50px 30px $button-color-shadow;
+  }
+}
